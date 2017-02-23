@@ -6,7 +6,8 @@ CANDIDATE = 12
 CITY = 14
 ZIP = 34
 
-PARTY_OF_INTEREST = "DEM"
+PARTY_OF_INTEREST = "REP"
+#PARTY_OF_INTEREST = "DEM"
 
 SINGLE_CANDIDATE_RACE = {"Daniel William Lipinski", "Luis V. Gutierrez", "Antonio ''Tony'' Munoz", \
 "Omar Aquino", "Kimberly A. Lightford", "Patricia Van Pelt", "Heather A. Steans", \
@@ -53,7 +54,7 @@ def construct_zip_sets(county):
 def construct_chicago_users():
 	chicago_users = set()
 	zip_set = construct_zip_sets("Cook")
-	print("There are", len(zip_set), "zip codes in Cook County")
+	#print("There are", len(zip_set), "zip codes in Cook County")
 	with open("data/with_header.csv") as csvfile:
 		csvfile.readline()
 		#identity idx 3
@@ -113,7 +114,7 @@ def build_user_saves_from_raw(multiple_candidates_race):
 	total_saves = 0
 	for user in user_dict:
 		for party in user_dict[user]:
-			total_saves+=user_dict[user][party]
+			total_saves += user_dict[user][party]
 	print("Total saves:", total_saves)
 	print(len(user_dict))
 	print(total_saves/len(user_dict))
